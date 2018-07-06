@@ -1,0 +1,17 @@
+version: "3"
+services:
+    database:
+        image: "mariadb:10.3.8"
+        environment:
+            MYSQL_ROOT_PASSWORD: "g5kDTt6R"
+            MYSQL_DATABASE: "get4me"
+            MYSQL_USER: "api"
+            MYSQL_PASSWORD: "4qKxDhSN"
+    api:
+        build: .
+        volumes: 
+            - ./api:/code
+        working_dir: /code
+        command: python3 manage.py runserver 0.0.0.0:8000
+        ports:
+            - "8000:8000"
