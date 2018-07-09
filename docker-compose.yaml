@@ -12,6 +12,13 @@ services:
         volumes: 
             - ./api:/code
         working_dir: /code
-        command: python3 manage.py runserver 0.0.0.0:8000
         ports:
             - "8000:8000"
+        depends_on:
+            - "database"
+        environment:
+            MYSQL_HOST: "database"
+            MYSQL_DATABASE: "get4me"
+            MYSQL_USER: "api"
+            MYSQL_PASSWORD: "4qKxDhSN"
+        command: ["/wait-for-database.sh", "python3", "manage.py", "runserver", "0.0.0.0:8000"]

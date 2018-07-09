@@ -6,5 +6,4 @@ WORKDIR /code
 ADD requirements.txt /code/
 RUN pip3 install --no-cache-dir -Ur requirements.txt && \
     rm -r /root/.cache
-COPY ./docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
+COPY ./wait-for-database.sh /
