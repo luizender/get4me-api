@@ -29,9 +29,25 @@ To run the containers, you need to execute
 docker-compose up
 ```
 
-This command will run the database and the API. So now, you can access the API using the follow step:
+This command will run the database and the API. So now, you can access the API using the follow 
+step:
+
 ```
 curl -X GET http://127.0.0.1:8000/
 ```
 
 Or, you can access using your browser with the address ```http://127.0.0.1:8000/```
+
+# Running with Shell
+
+To run with shell, you need to execute
+
+```
+docker-compose run --service-ports api sh
+```
+
+After that, you need to execute the follow command to start the API
+
+```
+make run
+```
