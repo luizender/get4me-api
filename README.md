@@ -2,6 +2,13 @@
 
 This project is an API to the Get4me solution generated at the event Intelbras LAB.
 
+## Table of Contents
+
+* [Requirements](#requirements)
+* [Setup](#setup)
+* [Running](#running)
+* [Running with Shell](#running-with-shell)
+
 ## Requirements
 
 This project can be executed in several operation system (SO), but has the following dependencies:
@@ -38,7 +45,7 @@ curl -X GET http://127.0.0.1:8000/
 
 Or, you can access using your browser with the address ```http://127.0.0.1:8000/```
 
-# Running with Shell
+## Running with Shell
 
 To run with shell, you need to execute
 
