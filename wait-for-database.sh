@@ -2,11 +2,11 @@
 
 set -e
 
-until mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" -h"$MYSQL_HOST" -e "show databases;" > /dev/null 2>&1; do
-  >&2 echo "MariaDB is unavailable - sleeping"
+until PGPASSWORD=$DB_PASSWORD psql -h "$DB_HOST" -U "$DB_USER" -d "$DB_DATABASE" -c '\q'; do
+  >&2 echo "Postgres is unavailable - sleeping"
   sleep 1
 done
 
->&2 echo "MariaDB is up - executing command: $@"
+>&2 echo "Postgres is up - executing command"
 
 exec "$@"

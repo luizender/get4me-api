@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_DATABASE', 'get4me'),
-        'USER': os.environ.get('MYSQL_USER', 'api'),
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD', '4qKxDhSN'),
-        'HOST': os.environ.get('MYSQL_HOST', 'database'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_DATABASE', 'get4me'),
+        'USER': os.environ.get('DB_USER', 'api'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', '4qKxDhSN'),
+        'HOST': os.environ.get('DB_HOST', 'database'),
         'PORT': ''
     }
 }

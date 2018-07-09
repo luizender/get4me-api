@@ -1,12 +1,11 @@
 version: "3"
 services:
     database:
-        image: "mariadb:10.3.8"
+        image: "postgres:10.4-alpine"
         environment:
-            MYSQL_ROOT_PASSWORD: "g5kDTt6R"
-            MYSQL_DATABASE: "get4me"
-            MYSQL_USER: "api"
-            MYSQL_PASSWORD: "4qKxDhSN"
+            POSTGRES_USER: "api"
+            POSTGRES_PASSWORD: "4qKxDhSN"
+            POSTGRES_DB: "get4me"
     api:
         build: .
         volumes: 
@@ -17,8 +16,8 @@ services:
         depends_on:
             - "database"
         environment:
-            MYSQL_HOST: "database"
-            MYSQL_DATABASE: "get4me"
-            MYSQL_USER: "api"
-            MYSQL_PASSWORD: "4qKxDhSN"
+            DB_HOST: "database"
+            DB_DATABASE: "get4me"
+            DB_USER: "api"
+            DB_PASSWORD: "4qKxDhSN"
         command: ["./wait-for-database.sh", "make", "run"]
