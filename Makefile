@@ -1,7 +1,9 @@
 API_DIR:=api
 
-migrate:
+makemigrations:
 	python3 ${API_DIR}/manage.py makemigrations
+
+migrate:
 	python3 ${API_DIR}/manage.py migrate
 
 run: migrate

@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from get4me.views import BuyersView, GuardianView
+from rest_auth.views import LoginView, LogoutView
 
 router = routers.DefaultRouter()
 router.register(r'buyers', BuyersView)
@@ -24,5 +25,7 @@ router.register(r'guardians', GuardianView)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(router.urls))
+    url(r'^', include(router.urls)),
+    url(r'^login/', LoginView.as_view()),
+    url(r'^logout/', LogoutView.as_view())
 ]
