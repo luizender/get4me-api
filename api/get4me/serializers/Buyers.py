@@ -10,6 +10,6 @@ class BuyersSerializer(WritableNestedModelSerializer):
         
         model = BuyersModel
         fields = (
-            'user', 'address', 'district', 'state',
-            'code', 'country', 'phone'
+            'id', 'user', 'address', 'district',
+            'state', 'code', 'country', 'phone'
         )

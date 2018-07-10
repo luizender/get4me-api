@@ -14,3 +14,8 @@ class BuyersModel(models.Model):
     class Meta:
         db_table = 'buyers'
 
+    def delete(self, *args, **kwargs):
+        if self.user:
+            self.user.delete()
+
+        return super(BuyersModel, self).delete(*args, **kwargs)
