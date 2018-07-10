@@ -1,11 +1,8 @@
-from drf_writable_nested import WritableNestedModelSerializer
-from .Users import UserSerializer
+from .Users import ModelHasUserSerializer
 from ..models import BuyersModel
 
-class BuyersSerializer(WritableNestedModelSerializer):
+class BuyersSerializer(ModelHasUserSerializer):
 
-    user = UserSerializer()
-    
     class Meta:
         
         model = BuyersModel
