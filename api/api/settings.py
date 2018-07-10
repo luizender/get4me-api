@@ -133,8 +133,14 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     )
 }
+
+# Settings for sessions
+# https://docs.djangoproject.com/en/1.11/ref/settings/#sessions
+
+SESSION_COOKIE_AGE = 60 * 60

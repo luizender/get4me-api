@@ -25,7 +25,5 @@ router.register(r'guardians', GuardiansView)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(router.urls)),
-    url(r'^login/', LoginView.as_view()),
-    url(r'^logout/', LogoutView.as_view())
+    url(r'', include(router.urls)),
 ]
