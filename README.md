@@ -16,6 +16,7 @@ This project can be executed in several operation system (SO), but has the follo
 * [Django](https://www.djangoproject.com/) == 1.11.11
 * [Djangorestframework](http://www.django-rest-framework.org/) == 3.8.2
 * [django-rest-auth](http://django-rest-auth.readthedocs.io/en/latest/index.html) == 0.9.3
+* [drf-writable-nested](https://github.com/beda-software/drf-writable-nested) == 0.4.3
 * [psycopg2](http://initd.org/psycopg/) == 2.7.5
 * [Python](https://www.python.org/) >= 3
 * [Pip](http://www.pip-installer.org/en/latest/)

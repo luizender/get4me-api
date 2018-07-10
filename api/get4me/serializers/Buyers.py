@@ -1,9 +1,15 @@
-from rest_framework import serializers
+from drf_writable_nested import WritableNestedModelSerializer
+from .Users import UserSerializer
 from ..models import BuyersModel
 
-class BuyersSerializer(serializers.ModelSerializer):
+class BuyersSerializer(WritableNestedModelSerializer):
+
+    user = UserSerializer()
     
     class Meta:
         
         model = BuyersModel
-        fields = '__all__'
+        fields = (
+            'user', 'address', 'district', 'state',
+            'code', 'country', 'phone'
+        )

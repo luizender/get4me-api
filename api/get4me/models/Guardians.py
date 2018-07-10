@@ -1,6 +1,6 @@
 from django.db import models
 
-class GuardianModel(models.Model):
+class GuardiansModel(models.Model):
     
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
@@ -12,3 +12,6 @@ class GuardianModel(models.Model):
     phone = models.CharField(max_length=15)
     start_work = models.TimeField()
     end_work = models.TimeField()
+
+    class Meta:
+        db_table = 'guardians'
