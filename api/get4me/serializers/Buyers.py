@@ -1,12 +1,9 @@
 from .Users import ModelHasUserSerializer
-from ..models import BuyersModel
+from get4me.models import BuyersModel
 
 class BuyersSerializer(ModelHasUserSerializer):
 
     class Meta:
         
         model = BuyersModel
-        fields = (
-            'id', 'user', 'address', 'district',
-            'state', 'code', 'country', 'phone'
-        )
+        fields = '__all__'

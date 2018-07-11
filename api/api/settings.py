@@ -140,7 +140,14 @@ REST_FRAMEWORK = {
     )
 }
 
-# Settings for sessions
+# Sessions settings
 # https://docs.djangoproject.com/en/1.11/ref/settings/#sessions
 
 SESSION_COOKIE_AGE = 60 * 60
+
+# Auth settings
+# https://docs.djangoproject.com/en/1.11/ref/settings/#auth
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'

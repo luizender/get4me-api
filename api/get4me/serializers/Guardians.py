@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from ..models import GuardiansModel
+from .Users import ModelHasUserSerializer
+from get4me.models import GuardiansModel
 
-class GuardiansSerializer(serializers.ModelSerializer):
+class GuardiansSerializer(ModelHasUserSerializer):
     
     class Meta:
         

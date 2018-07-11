@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from ..models import BuyersModel
-from ..serializers import BuyersSerializer
+from get4me.models import BuyersModel
+from get4me.serializers import BuyersSerializer
 
 class BuyersView(viewsets.ModelViewSet):
 

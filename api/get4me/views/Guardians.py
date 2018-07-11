@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from ..models import GuardiansModel
-from ..serializers import GuardiansSerializer
+from get4me.models import GuardiansModel
+from get4me.serializers import GuardiansSerializer
 
 class GuardiansView(viewsets.ModelViewSet):
 
