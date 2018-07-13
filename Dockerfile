@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.8
 MAINTAINER Luiz Gustavo Ender <luiz.ender@gmail.com>
 WORKDIR /build
 ADD requirements.txt /build/
