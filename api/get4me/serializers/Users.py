@@ -10,6 +10,7 @@ class UserUniqueValidator(UniqueValidator):
 
     def set_context(self, serializer_field):
         self.field_name = serializer_field.source_attrs[-1]
+        self.instance = None
 
         user_serializer = serializer_field.parent
         if not user_serializer:
@@ -21,7 +22,7 @@ class UserUniqueValidator(UniqueValidator):
 
         instance = getattr(model_serializer, 'instance', None)
         if instance:
-            self.instance = instance.user
+            self.instance = getattr(instance, 'user', None)
 
 class UserSerializer(serializers.ModelSerializer):
 
