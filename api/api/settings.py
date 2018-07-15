@@ -151,3 +151,6 @@ SESSION_COOKIE_AGE = 60 * 60
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
+
+# Google Maps API settings
+GMAPS_API_KEY=os.environ.get('GMAPS_API_KEY', '')

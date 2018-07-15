@@ -20,4 +20,5 @@ services:
             DB_DATABASE: "get4me"
             DB_USER: "api"
             DB_PASSWORD: "4qKxDhSN"
+            GMAPS_API_KEY: "AIzaSyBmwJLpVgjxyHQu6HK73-tNcCbhSz2MeIw"
         command: ["./wait-for-database.sh", "make", "run"]

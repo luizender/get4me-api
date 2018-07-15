@@ -17,11 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from rest_auth.views import LoginView, LogoutView
-from get4me.views import BuyersView, GuardiansView
+from get4me.views import BuyersView, GuardiansView, PostcodeView
 
 router = routers.DefaultRouter()
-router.register(r'buyers', BuyersView)
-router.register(r'guardians', GuardiansView)
+router.register(r'buyers/profile', BuyersView, base_name='buyers/profile')
+router.register(r'guardians/profile', GuardiansView, base_name='guardians/profile')
+router.register(r'guardians/search', PostcodeView, base_name='guardians/search')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
