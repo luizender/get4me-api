@@ -36,7 +36,13 @@ class GuardiansModel(models.Model):
     class Meta:
         db_table = 'guardians'
 
-    def name(self):
+    def full_name(self):
         if self.user:
             return self.user.first_name + ' ' + self.user.last_name
         return ''
+
+    def full_address(self):
+        return '%s - %s, %s - %s, %s, %s' % (
+            self.address, self.district, self.city,
+            self.state, self.postcode, self.country
+        )

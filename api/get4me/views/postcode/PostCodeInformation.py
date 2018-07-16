@@ -12,6 +12,11 @@ class PostCodeInformation(object):
         except Exception as ex:
             self.information = None
 
+    def get_address(self):
+        if self.information:
+            return self.information['end']
+        return None
+
     def get_city(self):
         if self.information:
             return self.information['cidade']

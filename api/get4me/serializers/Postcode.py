@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 class PostcodeSerializer(serializers.Serializer):
 
-    name = serializers.CharField(read_only=True)
+    full_name = serializers.CharField(read_only=True)
     address = serializers.CharField(read_only=True)
     district = serializers.CharField(read_only=True)
     city = serializers.CharField(read_only=True)
@@ -20,13 +20,13 @@ class PostcodeSerializer(serializers.Serializer):
         super(PostcodeSerializer, self).__init__(*args, **kwargs)
 
     def get_distance(self, obj):
-        if self.gmaps_data:
-            data = self.gmaps_data[obj.postcode]
+        if self.gmaps_data and self.gmaps_data[obj.id]:
+            data = self.gmaps_data[obj.id]
             return data['distance']['value']
         return 0
 
     def get_duration(self, obj):
-        if self.gmaps_data:
-            data = self.gmaps_data[obj.postcode]
+        if self.gmaps_data and self.gmaps_data[obj.id]:
+            data = self.gmaps_data[obj.id]
             return data['duration']['value']
         return 0
