@@ -22,11 +22,13 @@ class PostcodeSerializer(serializers.Serializer):
     def get_distance(self, obj):
         if self.gmaps_data and self.gmaps_data[obj.id]:
             data = self.gmaps_data[obj.id]
-            return data['distance']['value']
+            if data and 'distance' in data:
+                return data['distance']['value']
         return 0
 
     def get_duration(self, obj):
         if self.gmaps_data and self.gmaps_data[obj.id]:
             data = self.gmaps_data[obj.id]
-            return data['duration']['value']
+            if data and 'distance' in data:
+                return data['duration']['value']
         return 0
