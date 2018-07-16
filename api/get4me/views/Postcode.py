@@ -2,7 +2,7 @@ from rest_framework import viewsets, generics, status
 from rest_framework.response import Response
 from get4me.serializers import PostcodeSerializer
 from get4me.models import GuardiansModel
-from get4me.postcode import PostCodeInformation, GMapsDistance
+from .postcode import PostCodeInformation, GMapsDistance
 
 class PostcodeView(viewsets.ReadOnlyModelViewSet):
 
