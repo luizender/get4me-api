@@ -18,6 +18,7 @@ This project can be executed in several operation system (SO), but has the follo
 * [django-rest-auth](http://django-rest-auth.readthedocs.io/en/latest/index.html) == 0.9.3
 * [psycopg2](http://initd.org/psycopg/) == 2.7.5
 * [googlemaps](https://github.com/googlemaps/google-maps-services-python) == 3.0.2
+* [pycep-correios](https://pycep-correios.readthedocs.io/pt/latest/) ==2.3.1
 * [Python](https://www.python.org/) >= 3
 * [Pip](http://www.pip-installer.org/en/latest/)
 

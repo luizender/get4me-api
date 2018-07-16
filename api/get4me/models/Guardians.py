@@ -1,7 +1,26 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+class GuardiansManager(models.Manager):
+
+    def filter_by_info(self, state, city, district):
+        objects = GuardiansModel.objects.filter(state=state, city=city, district=district)
+        if len(objects) > 0:
+            return objects
+
+        objects = GuardiansModel.objects.filter(state=state, city=city)
+        if len(objects) > 0:
+            return objects
+
+        objects = GuardiansModel.objects.filter(state=state)
+        if len(objects) > 0:
+            return objects
+
+        return GuardiansModel.objects.all()
+
 class GuardiansModel(models.Model):
+
+    objects = GuardiansManager()
 
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, default=None)
     address = models.CharField(max_length=255)
@@ -13,8 +32,6 @@ class GuardiansModel(models.Model):
     phone = models.CharField(max_length=15)
     start_work = models.TimeField()
     end_work = models.TimeField()
-    distance = None
-    duration = None
 
     class Meta:
         db_table = 'guardians'
