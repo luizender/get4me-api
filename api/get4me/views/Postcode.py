@@ -2,7 +2,7 @@ from rest_framework import viewsets, generics, status
 from rest_framework.response import Response
 from get4me.serializers import PostcodeSerializer
 from get4me.models import GuardiansModel
-from .postcode import PostCodeInformation, GMapsDistance
+from .postcode import PostCodeInformation, GMapsDistance, GMapsGeocode
 
 class PostcodeView(viewsets.ReadOnlyModelViewSet):
 
@@ -51,13 +51,15 @@ class PostcodeView(viewsets.ReadOnlyModelViewSet):
                 data = { 'message': 'Invalid address' }
                 return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-            gmaps = GMapsDistance(full_address)
-            if not gmaps.get_place_id():
+            gmaps = GMapsGeocode(full_address)
+            place_id = gmaps.get_place_id()
+            if not place_id:
                 data = { 'message': 'Invalid place id of address' }
                 return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
             queryset = self.filter_queryset(self.get_queryset())
 
+            gmaps = GMapsDistance(place_id)
             for guardian in queryset:
                 gmaps.add_destination(guardian.id, guardian.full_address())
             gmaps_data = gmaps.get_distance_duration()
