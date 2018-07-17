@@ -21,13 +21,13 @@ class PostCodeInformation(object):
         if self.information:
             return self.information['cidade']
         return None
-    
+
     def get_state(self):
         if self.information:
             return self.information['uf']
         return None
 
-    def get_district(self):
+    def get_neighborhood(self):
         if self.information:
             return self.information['bairro']
         return None

@@ -4,7 +4,7 @@ class PostcodeSerializer(serializers.Serializer):
 
     full_name = serializers.CharField(read_only=True)
     address = serializers.CharField(read_only=True)
-    district = serializers.CharField(read_only=True)
+    neighborhood = serializers.CharField(read_only=True)
     city = serializers.CharField(read_only=True)
     state = serializers.CharField(read_only=True)
     country = serializers.CharField(read_only=True)

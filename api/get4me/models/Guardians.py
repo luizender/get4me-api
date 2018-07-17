@@ -3,8 +3,8 @@ from django.contrib.auth import get_user_model
 
 class GuardiansManager(models.Manager):
 
-    def filter_by_info(self, state, city, district):
-        objects = GuardiansModel.objects.filter(state=state, city=city, district=district)
+    def filter_by_info(self, state, city, neighborhood):
+        objects = GuardiansModel.objects.filter(state=state, city=city, neighborhood=neighborhood)
         if len(objects) > 0:
             return objects
 
@@ -24,7 +24,7 @@ class GuardiansModel(models.Model):
 
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, default=None)
     address = models.CharField(max_length=255)
-    district = models.CharField(max_length=255)
+    neighborhood = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     postcode = models.CharField(max_length=255)
@@ -32,6 +32,8 @@ class GuardiansModel(models.Model):
     phone = models.CharField(max_length=15)
     start_work = models.TimeField()
     end_work = models.TimeField()
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
 
     class Meta:
         db_table = 'guardians'
@@ -43,6 +45,6 @@ class GuardiansModel(models.Model):
 
     def full_address(self):
         return '%s - %s, %s - %s, %s, %s' % (
-            self.address, self.district, self.city,
+            self.address, self.neighborhood, self.city,
             self.state, self.postcode, self.country
         )

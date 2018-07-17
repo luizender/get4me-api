@@ -28,7 +28,7 @@ class GMapsDistance(object):
         if not destin in self.destin:
             self._destin_dict[id] = destin
             self.destin.append(destin)
-    
+
     def get_distance_duration(self):
         gmaps = Client(key=settings.GMAPS_API_KEY)
         response = gmaps.distance_matrix(self.origin, self.destin)

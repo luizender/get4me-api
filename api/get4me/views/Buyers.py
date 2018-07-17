@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from get4me.models import BuyersModel
 from get4me.serializers import BuyersSerializer
 
@@ -13,4 +13,4 @@ class BuyersView(viewsets.ModelViewSet):
         elif self.action == 'create':
             self.permission_classes = [permissions.AllowAny]
 
-        return super(GuardiansView, self).get_permissions()
+        return super(BuyersView, self).get_permissions()
