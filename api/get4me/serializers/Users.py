@@ -48,7 +48,6 @@ class ModelHasUserSerializer(serializers.ModelSerializer):
 
     user = UserSerializer(required=True)
 
-
     def create(self, validated_data):
         user = get_user_model().objects.create_user(**validated_data.pop('user'))
         instance = self.Meta.model.objects.create(user=user, **validated_data)
