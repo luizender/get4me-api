@@ -21,4 +21,6 @@ services:
             DB_USER: "api"
             DB_PASSWORD: "4qKxDhSN"
             GMAPS_API_KEY: "AIzaSyBmwJLpVgjxyHQu6HK73-tNcCbhSz2MeIw"
+            DJANGO_SECRET_KEY: "#7!-uh6fu0!p)eial$$&#r-&4i64p)f*5+sqr2zqs3))y^_1js!"
+            DJANGO_DEVELOP_MODE: "True"
         command: ["./wait-for-database.sh", "make", "run"]

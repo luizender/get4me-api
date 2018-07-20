@@ -15,18 +15,21 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+DEVELOP_MODE = os.environ.get('DJANGO_DEVELOP_MODE', 'False')[0].upper() == 'T'
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#7!-uh6fu0!p)eial$&#r-&4i64p)f*5+sqr2zqs3))y^_1js!'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEVELOP_MODE
 
 ALLOWED_HOSTS = []
-
+if not DEVELOP_MODE:
+    ALLOWED_HOSTS = [
+        '*'
+    ]
 
 # Application definition
 
@@ -72,7 +75,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'api.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -137,12 +139,13 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
-    ),
-    # Enable this in production
-    # 'DEFAULT_RENDERER_CLASSES': (
-    #     'rest_framework.renderers.JSONRenderer',
-    # )
+    )
 }
+
+if not DEVELOP_MODE:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
+        'rest_framework.renderers.JSONRenderer',
+    )
 
 # Sessions settings
 # https://docs.djangoproject.com/en/1.11/ref/settings/#sessions

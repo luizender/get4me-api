@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
 from rest_framework import routers
 from rest_auth.views import LoginView, LogoutView
 from get4me.views import BuyersView, GuardiansView, PostcodeView
@@ -25,8 +26,10 @@ router.register(r'guardians/profile', GuardiansView, base_name='guardians/profil
 router.register(r'guardians/search', PostcodeView, base_name='guardians/search')
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^login/', LoginView.as_view()),
     url(r'^logout/', LogoutView.as_view()),
     url(r'', include(router.urls)),
 ]
+
+if settings.DEVELOP_MODE:
+    urlpatterns.append(url(r'^admin/', admin.site.urls))
