@@ -40,7 +40,7 @@ class PostcodeView(viewsets.ReadOnlyModelViewSet):
         return full_address
 
     def _get_latitude_longitude(self):
-        if len(self.request.GET) == 0:
+        if len(self.request.GET) == 0 and not self.request.user.is_staff:
             objects = BuyersModel.objects.filter(user__username=self.request.user)
             if len(objects) == 0:
                 return None

@@ -7,6 +7,11 @@ class BuyersView(viewsets.ModelViewSet):
     queryset = BuyersModel.objects.all()
     serializer_class = BuyersSerializer
 
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return BuyersModel.objects.all()
+        return BuyersModel.objects.filter(user__username=self.request.user)
+
     def get_permissions(self):
         if self.action == 'list':
             self.permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
