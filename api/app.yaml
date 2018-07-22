@@ -1,0 +1,19 @@
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT api.wsgi
+
+runtime_config:
+  python_version: 3
+
+env_variables:
+  DB_HOST: "/cloudsql/get4me-1531342075511:southamerica-east1:get4me-database"
+  DB_PORT: "5432"
+  DB_DATABASE: "get4me"
+  DB_USER: "api"
+  DB_PASSWORD: "4qKxDhSN"
+  GMAPS_API_KEY: "AIzaSyBmwJLpVgjxyHQu6HK73-tNcCbhSz2MeIw"
+  DJANGO_SECRET_KEY: "#7!-uh6fu0!p)eial$$&#r-&4i64p)f*5+sqr2zqs3))y^_1js!"
+  DJANGO_DEVELOP_MODE: "True"
+
+beta_settings:
+  cloud_sql_instances: "get4me-1531342075511:southamerica-east1:get4me-database"

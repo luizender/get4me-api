@@ -20,16 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEVELOP_MODE = os.environ.get('DJANGO_DEVELOP_MODE', 'False')[0].upper() == 'T'
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '#7!-uh6fu0!p)eial$$&#r-&4i64p)f*5+sqr2zqs3))y^_1js!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEVELOP_MODE
 
-ALLOWED_HOSTS = []
-if not DEVELOP_MODE:
-    ALLOWED_HOSTS = [
-        '*'
-    ]
+ALLOWED_HOSTS = [
+    '*'
+]
 
 # Application definition
 
@@ -86,7 +84,7 @@ DATABASES = {
         'USER': os.environ.get('DB_USER', 'api'),
         'PASSWORD': os.environ.get('DB_PASSWORD', '4qKxDhSN'),
         'HOST': os.environ.get('DB_HOST', 'database'),
-        'PORT': ''
+        'PORT': os.environ.get('DB_PORT', '5432')
     }
 }
 
@@ -160,4 +158,4 @@ LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 # Google Maps API settings
-GMAPS_API_KEY=os.environ.get('GMAPS_API_KEY', '')
+GMAPS_API_KEY=os.environ.get('GMAPS_API_KEY', 'AIzaSyBmwJLpVgjxyHQu6HK73-tNcCbhSz2MeIw')

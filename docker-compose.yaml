@@ -17,6 +17,7 @@ services:
             - "database"
         environment:
             DB_HOST: "database"
+            DB_PORT: "5432"
             DB_DATABASE: "get4me"
             DB_USER: "api"
             DB_PASSWORD: "4qKxDhSN"
