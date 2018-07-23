@@ -13,7 +13,7 @@ env_variables:
   DB_PASSWORD: "4qKxDhSN"
   GMAPS_API_KEY: "AIzaSyBmwJLpVgjxyHQu6HK73-tNcCbhSz2MeIw"
   DJANGO_SECRET_KEY: "#7!-uh6fu0!p)eial$$&#r-&4i64p)f*5+sqr2zqs3))y^_1js!"
-  DJANGO_DEVELOP_MODE: "True"
+  DJANGO_DEVELOP_MODE: "False"
 
 beta_settings:
   cloud_sql_instances: "get4me-1531342075511:southamerica-east1:get4me-database"
