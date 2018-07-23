@@ -131,6 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+if not DEVELOP_MODE:
+    STATIC_URL = 'https://storage.googleapis.com/get4me-1531342075511/static/'
+
+STATIC_ROOT = 'static/'
+
 
 # Rest Framework settings
 # http://www.tomchristie.com/rest-framework-2-docs/api-guide/settings
